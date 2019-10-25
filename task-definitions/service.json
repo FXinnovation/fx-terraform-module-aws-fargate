@@ -7,8 +7,8 @@
     "essential": true,
     "portMappings": [
       {
-        "containerPort": "${container_inside_port}",
-        "hostPort": "${container_outside_port}"
+        "containerPort": ${container_inside_port},
+        "hostPort": ${container_outside_port}
       }
     ]
   }
