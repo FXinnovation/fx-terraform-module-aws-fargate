@@ -6,7 +6,7 @@ resource "aws_lb" "this" {
   name               = format("esb-%s-application-lb", var.environment)
   internal           = false
   load_balancer_type = "application"
-  security_groups    = concat(list(aws_security_group.lb.id), var.lb_security_group_ids)
+  security_groups    = ["aws_security_group.this.id"]
   subnets            = var.subnet_ids
 
   enable_deletion_protection = false
@@ -74,9 +74,6 @@ resource "aws_ecs_service" "this" {
   launch_type         = "FARGATE"
   scheduling_strategy = "REPLICA"
   platform_version    = var.ecs_service_platform_version
-
-  iam_role   = aws_iam_role.this.arn
-  depends_on = ["aws_iam_role_policy.this"]
 
   load_balancer {
     target_group_arn = aws_lb_target_group.this.arn

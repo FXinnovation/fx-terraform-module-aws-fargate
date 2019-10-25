@@ -1,3 +1,8 @@
+variable "environment" {
+  description = "Name of the environment the module belongs too."
+  type        = string
+}
+
 variable "ecs_cluster_name" {
   description = "ECS cluster name."
   type        = string
@@ -70,4 +75,9 @@ variable "ecs_container_inside_port" {
 variable "ecs_container_outside_port" {
   description = "ECS container outside port to map on host."
   type        = number
+}
+
+variable "subnet_ids" {
+  description = "List of subnet IDs for ESB deployment."
+  type        = list
 }
