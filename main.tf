@@ -42,9 +42,8 @@ resource "aws_lb_listener" "this" {
 }
 
 resource "aws_security_group" "this" {
-  name        = format("%s-alb-sg", var.ecs_cluster_name)
-  description = format("Security group for ECS cluster %s ALB", var.ecs_cluster_name)
-  vpc_id      = var.vpc_id
+  name   = format("%s-alb-sg", var.ecs_cluster_name)
+  vpc_id = var.vpc_id
 }
 
 resource "aws_security_group_rule" "this_ingress_80" {
