@@ -85,6 +85,11 @@ resource "aws_ecs_service" "this" {
     container_port   = var.ecs_container_outside_port
   }
 
+  network_configuration {
+    security_groups = [aws_security_group.this.id]
+    subnets         = [var.ecs_subnets]
+  }
+
   depends_on = [
     "aws_lb_listener.this",
   ]

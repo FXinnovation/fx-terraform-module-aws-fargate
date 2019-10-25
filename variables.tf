@@ -24,6 +24,11 @@ variable "ecs_service_platform_version" {
   default     = "LATEST"
 }
 
+variable "ecs_subnets" {
+  description = "ECS subnets for VPC mode configuration."
+  type        = string
+}
+
 variable "ecs_task_definition_name" {
   description = "ECS task definition name for a single or group of containers."
   type        = string
