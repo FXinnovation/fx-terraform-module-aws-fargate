@@ -24,11 +24,6 @@ variable "ecs_service_platform_version" {
   default     = "LATEST"
 }
 
-variable "ecs_container_port" {
-  description = "ECS container side port to map."
-  type        = string
-}
-
 variable "ecs_task_definition_name" {
   description = "ECS task definition name for a single or group of containers."
   type        = string

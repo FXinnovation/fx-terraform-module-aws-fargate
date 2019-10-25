@@ -78,12 +78,12 @@ resource "aws_ecs_service" "this" {
   load_balancer {
     target_group_arn = aws_lb_target_group.this.arn
     container_name   = var.ecs_container_name
-    container_port   = var.ecs_container_port
+    container_port   = var.ecs_container_outside_port
   }
 }
 
 data "template_file" "this" {
-  template = "${file("task-definitions/service.json")}"
+  template = "${file("${path.module}/task-definitions/service.json")}"
 
   vars = {
     container_name         = var.ecs_container_name
@@ -101,9 +101,3 @@ resource "aws_ecs_task_definition" "this" {
   requires_compatibilities = ["FARGATE"]
   network_mode             = var.ecs_task_network_mode
 }
-
-
-
-####
-# IAM Policies
-####
