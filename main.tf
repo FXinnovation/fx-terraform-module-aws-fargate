@@ -34,13 +34,12 @@ resource "aws_ecs_service" "this" {
     container_name   = var.ecs_container_name
     container_port   = var.ecs_container_port
   }
-
 }
 
 resource "aws_ecs_task_definition" "this" {
   family                   = var.ecs_tasks_definition_name
   container_definitions    = "${file("task-definitions/service.json")}"
-  requires_compatibilities = "FARGATE"
+  requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
 }
 
