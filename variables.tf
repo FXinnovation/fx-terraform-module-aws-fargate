@@ -29,6 +29,10 @@ variable "ecs_task_definition_name" {
   type        = string
 }
 
+variable "ecs_task_cpu_units" {
+  description = "Number of cpu units allocated for tasks."
+}
+
 variable "ecs_task_network_mode" {
   description = "ECS task container network mode."
   type        = string
