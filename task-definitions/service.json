@@ -1,14 +1,14 @@
 [
   {
-    "name": "nginx-fx",
-    "image": "nginx",
-    "cpu": 10,
-    "memory": 128,
+    "name": "${var.container_name}",
+    "image": "${var.container_image}",
+    "cpu": "${var.container_cpu_limit}",
+    "memory": "${var.container_mem_limit}",
     "essential": true,
     "portMappings": [
       {
-        "containerPort": 80,
-        "hostPort": 80
+        "containerPort": "${var.container_inside_port}",
+        "hostPort": "${var.container_outside_port}"
       }
     ]
   }

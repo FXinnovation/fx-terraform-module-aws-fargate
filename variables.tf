@@ -19,17 +19,55 @@ variable "ecs_service_platform_version" {
   default     = "LATEST"
 }
 
-variable "ecs_container_name" {
-  description = "ECS task related container name."
-  type        = string
-}
-
 variable "ecs_container_port" {
   description = "ECS container side port to map."
   type        = string
 }
 
-variable "ecs_tasks_definition_name" {
+variable "ecs_task_definition_name" {
   description = "ECS task definition name for a single or group of containers."
   type        = string
+}
+
+variable "ecs_task_network_mode" {
+  description = "ECS task container network mode."
+  type        = string
+  default     = "awsvpc"
+}
+
+variable "vpc_id" {
+  description = "VPC identifier."
+  type        = string
+}
+
+variable "ecs_container_name" {
+  description = "ECS container name."
+  type        = string
+}
+
+variable "ecs_container_image" {
+  description = "ECS container image to pull."
+  type        = string
+}
+
+variable "ecs_container_cpu_limit" {
+  description = "ECS container cpu usage limit."
+  type        = number
+  default     = 10
+}
+
+variable "ecs_container_mem_limit" {
+  description = "ECS container memory usage limit."
+  type        = number
+  default     = 128
+}
+
+variable "ecs_container_inside_port" {
+  description = "ECS container inside port."
+  type        = number
+}
+
+variable "ecs_container_outside_port" {
+  description = "ECS container outside port to map on host."
+  type        = number
 }
