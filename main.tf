@@ -42,7 +42,7 @@ resource "aws_lb_listener" "this" {
 }
 
 resource "aws_security_group" "this" {
-  name   = format("%s-alb-sg", var.ecs_cluster_name)
+  name   = "jfo"
   vpc_id = var.vpc_id
 }
 
