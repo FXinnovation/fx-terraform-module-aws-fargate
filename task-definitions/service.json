@@ -1,14 +1,14 @@
 [
   {
-    "name": "${var.container_name}",
-    "image": "${var.container_image}",
-    "cpu": "${var.container_cpu_limit}",
-    "memory": "${var.container_mem_limit}",
+    "name": "${container_name}",
+    "image": "${container_image}",
+    "cpu": "${container_cpu_limit}",
+    "memory": "${container_mem_limit}",
     "essential": true,
     "portMappings": [
       {
-        "containerPort": "${var.container_inside_port}",
-        "hostPort": "${var.container_outside_port}"
+        "containerPort": "${container_inside_port}",
+        "hostPort": "${container_outside_port}"
       }
     ]
   }

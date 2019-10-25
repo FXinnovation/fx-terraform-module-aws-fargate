@@ -13,7 +13,7 @@ resource "aws_lb" "this" {
 }
 
 resource "aws_lb_target_group" "this" {
-  name        = format("ecs-%s-application-%s-tg", var.environment)
+  name        = format("ecs-%s-application-tg", var.environment)
   port        = var.ecs_container_outside_port
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
