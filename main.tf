@@ -6,7 +6,7 @@ resource "aws_lb" "this" {
   name               = format("esb-%s-application-lb", var.environment)
   internal           = false
   load_balancer_type = "application"
-  security_groups    = ["aws_security_group.this.id"]
+  security_groups    = [aws_security_group.this.id]
   subnets            = var.subnet_ids
 
   enable_deletion_protection = false
