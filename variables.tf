@@ -52,24 +52,22 @@ variable "ecs_container_image" {
 
 variable "ecs_container_cpu_limit" {
   description = "ECS container cpu usage limit."
-  type        = number
-  default     = 10
+  type        = string
 }
 
 variable "ecs_container_mem_limit" {
   description = "ECS container memory usage limit."
-  type        = number
-  default     = 128
+  type        = string
 }
 
 variable "ecs_container_inside_port" {
   description = "ECS container inside port."
-  type        = number
+  type        = string
 }
 
 variable "ecs_container_outside_port" {
   description = "ECS container outside port to map on host."
-  type        = number
+  type        = string
 }
 
 variable "subnet_ids" {
