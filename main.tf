@@ -10,6 +10,11 @@ resource "aws_lb" "this" {
   subnets            = var.subnet_ids
 
   enable_deletion_protection = false
+
+  depends_on = [
+    "aws_security_group.this",
+  ]
+
 }
 
 resource "aws_lb_target_group" "this" {
