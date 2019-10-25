@@ -79,6 +79,10 @@ resource "aws_ecs_service" "this" {
     container_name   = var.ecs_container_name
     container_port   = var.ecs_container_outside_port
   }
+
+  depends_on = [
+    "aws_lb_listener.this",
+  ]
 }
 
 data "template_file" "this" {
