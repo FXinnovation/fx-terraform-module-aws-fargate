@@ -3,7 +3,7 @@
 ####
 
 resource "aws_lb" "this" {
-  name               = format("esb-%s-application-lb", var.environment)
+  name               = format("ecs-%s-%s-lb", var.environment, var.ecs_service_name)
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.this.id]
