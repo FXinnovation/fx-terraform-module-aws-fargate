@@ -29,8 +29,12 @@ variable "ecs_task_definition_name" {
   type        = string
 }
 
-variable "ecs_task_cpu_units" {
+variable "ecs_task_cpu_value" {
   description = "Number of cpu units allocated for tasks."
+}
+
+variable "ecs_task_mem_value" {
+  description = "Number of mem units allocated for tasks."
 }
 
 variable "ecs_task_network_mode" {

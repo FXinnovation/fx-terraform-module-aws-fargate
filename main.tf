@@ -99,6 +99,7 @@ resource "aws_ecs_task_definition" "this" {
   family                   = var.ecs_task_definition_name
   container_definitions    = data.template_file.this.rendered
   requires_compatibilities = ["FARGATE"]
-  cpu                      = var.ecs_task_cpu_units
+  cpu                      = var.ecs_task_cpu_value
+  memory                   = var.ecs_task_mem_value
   network_mode             = var.ecs_task_network_mode
 }
