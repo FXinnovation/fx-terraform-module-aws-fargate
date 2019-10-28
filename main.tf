@@ -4,7 +4,7 @@
 
 resource "aws_lb" "this" {
   name               = format("ecs-%s-%s-lb", var.environment, var.ecs_service_name)
-  internal           = false
+  internal           = true
   load_balancer_type = "application"
   security_groups    = [aws_security_group.this.id]
   subnets            = var.subnet_ids
@@ -23,16 +23,6 @@ resource "aws_lb_target_group" "this" {
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
   target_type = "ip"
-
-  health_check {
-    enabled             = true
-    interval            = 10
-    path                = "/"
-    protocol            = "HTTP"
-    healthy_threshold   = 3
-    unhealthy_threshold = 3
-    matcher             = "200-299"
-  }
 }
 
 resource "aws_lb_listener" "this" {
